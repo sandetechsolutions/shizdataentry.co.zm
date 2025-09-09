@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City/Town Totals Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a1d4d;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #187bcd;
+      padding: 15px;
+    }
+    header img {
+      height: 80px;
+    }
+    h1 {
+      margin: 10px 0;
+    }
+    .totals-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .town-card {
+      background: #187bcd;
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px;
+      width: 200px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+    .town-card:hover {
+      background: #0a5ca8;
+    }
+    .town-name {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .town-total {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    /* Grand total card */
+    .grand-total {
+      width: 100%;
+      background: #00aaff;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      font-size: 28px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Replace logo.png with your logo file -->
+    <img src="shi.webp" alt="Logo">
+
+    <!-- Navigation Menu -->
+    <nav>
+      <ul>
+        <li><a href="shi.html">Home</a></li>
+        <li><a href="shizc.html">Statistics</a></li>
+        <li><a href="shi.html">Logout</a></li>
+      </ul>
+    </nav>
+
+    <style>
+      nav {
+        background: #187bcd;
+        padding: 12px;
+        text-align: center;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline-block;
+        margin: 0 15px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 6px;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        background: white;
+        color: #0a1d4d;
+      }
+    </style>
+
+    <h1>City/Town Hearing Assessment Totals</h1>
+  </header>
+
+  <div class="totals-container" id="totalsContainer">
+    <!-- Cards will be generated dynamically -->
+  </div>
+
+  <!-- Grand Total Section -->
+  <div class="grand-total" id="grandTotal">
+    Net Total: 0
+  </div>
+
+  <script>
+    // Example totals (replace with real data later)
+    const towns = {
+      "Livingstone": 25,
+      "Kapiri": 381,
+      "Lusaka": 541,
+      "Choma": 30,
+      "kabuyu": 6,
+      "Monze": 20,
+      "Nyimba": 19,
+      "Petauke": 74,
+      "Kafue Estate Clinic": 86
+    };
+
+    const container = document.getElementById("totalsContainer");
+    const grandTotalDiv = document.getElementById("grandTotal");
+
+    function createCards() {
+      container.innerHTML = "";
+      let grandTotal = 0;
+
+      for (const town in towns) {
+        const card = document.createElement("div");
+        card.className = "town-card";
+
+        const name = document.createElement("div");
+        name.className = "town-name";
+        name.innerText = town;
+
+        const total = document.createElement("div");
+        total.className = "town-total";
+        total.innerText = "0";
+
+        card.appendChild(name);
+        card.appendChild(total);
+        container.appendChild(card);
+
+        animateNumber(total, towns[town]);
+
+        grandTotal += towns[town];
+      }
+
+      // Animate grand total
+      animateGrandTotal(grandTotal);
+    }
+
+    // Animate numbers counting up
+    function animateNumber(element, finalNumber) {
+      let count = 0;
+      const step = Math.ceil(finalNumber / 50); // speed of counting
+      const interval = setInterval(() => {
+        count += step;
+        if (count >= finalNumber) {
+          element.innerText = finalNumber;
+          clearInterval(interval);
+        } else {
+          element.innerText = count;
+        }
+      }, 50);
+    }
+
+    // Animate grand total separately
+    function animateGrandTotal(finalNumber) {
+      let count = 0;
+      const step = Math.ceil(finalNumber / 50);
+      const interval = setInterval(() => {
+        count += step;
+        if (count >= finalNumber) {
+          grandTotalDiv.innerText = "Net Total: " + finalNumber;
+          clearInterval(interval);
+        } else {
+          grandTotalDiv.innerText = "Net Total: " + count;
+        }
+      }, 50);
+    }
+
+    // First run
+    createCards();
+
+    // Loop every 5 seconds
+    setInterval(createCards, 5000);
+  </script>
+</body>
+</html>
