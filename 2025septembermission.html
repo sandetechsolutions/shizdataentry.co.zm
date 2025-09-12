@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearing Mission Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0a1d4d;
+      color: #f0f8ff;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #0a1d4d, #1e90ff);
+      color: white;
+      padding: 10px 20px;
+      position: relative;
+    }
+    header .left {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    header .center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header .center img {
+      height: 50px;
+    }
+    header .right {
+      font-size: 14px;
+    }
+
+    /* Navigation */
+    nav {
+      background: #1e3a8a;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #f0f8ff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #87cefa;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      cursor: pointer;
+      background: #87cefa;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .card {
+      background: #1e3a8a;
+      color: #f0f8ff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .card h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #87cefa;
+    }
+    .card p {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 5px 0 0;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      background: #11235a;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #1e90ff;
+    }
+    th {
+      background: #1e3a8a;
+      color: #87cefa;
+    }
+    tr:hover {
+      background: #1e90ff44;
+    }
+
+    /* Charts */
+    .charts {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    canvas {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      max-height: 350px;
+      max-width: 450px;
+    }
+
+    /* Filter */
+    .filter {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .filter select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+
+    /* Light Theme */
+    body.light {
+      background: #f4f8fb;
+      color: #222;
+    }
+    body.light header {
+      background: linear-gradient(90deg, #87cefa, #1e90ff);
+      color: black;
+    }
+    body.light nav {
+      background: #87cefa;
+    }
+    body.light nav a {
+      color: black;
+    }
+    body.light .card {
+      background: #f0f8ff;
+      color: #222;
+    }
+    body.light table {
+      background: #fff;
+      color: #222;
+    }
+    body.light th {
+      background: #87cefa;
+      color: black;
+    }
+    body.light tr:hover {
+      background: #add8e633;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="left">Starkey Hearing Institute Zambia</div>
+    <div class="center">
+      <img src="logo.webp" alt="Logo">
+    </div>
+    <div class="right">
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+  </header>
+
+      <div class="left">September 8-12, 2025 statistics</div>
+    <div class="center">
+
+  <!-- Navigation Menu -->
+  <nav>
+    <a href="#">SHI-Home</a>
+    <a href="#">SHI-Patient Registration</a>
+    <a href="about:blank" onclick="window.close()">Exit Website</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- Filter -->
+    <div class="filter">
+      <label for="cityFilter"><b>Filter by City: </b></label>
+      <select id="cityFilter" onchange="updatePieChart()">
+        <option value="all">All Cities</option>
+        <option value="NEW KAPIRI MPOSHI">New Kapiri Mposhi</option>
+        <option value="KABWE">Kabwe</option>
+        <option value="NDOLA">Ndola</option>
+        <option value="KITWE">Kitwe</option>
+      </select>
+    </div>
+
+    <!-- Data Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>CITY/TOWN</th>
+          <th>LOCATION</th>
+          <th>CLIENTS FITTED</th>
+          <th>CLIENTS NOT FITTED</th>
+          <th>AFTERCARE</th>
+          <th>OVERALL CLIENTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NEW KAPIRI MPOSHI</td>
+          <td>TAZARA RAILWAYS</td>
+          <td>238</td>
+          <td>143</td>
+          <td>0</td>
+          <td>381</td>
+        </tr>
+        <tr>
+          <td>KABWE</td>
+          <td>KWAME KUMRUMA UNIVERSITY</td>
+          <td>301</td>
+          <td>157</td>
+          <td>2</td>
+          <td>460</td>
+        </tr>
+        <tr>
+          <td>NDOLA</td>
+          <td>LEVY MWANAWASA STADIUM</td>
+          <td>47</td>
+          <td>16</td>
+          <td>134</td>
+          <td>197</td>
+        </tr>
+        <tr>
+          <td>KITWE</td>
+          <td>TRINITY HEARING CENTRE</td>
+          <td>75</td>
+          <td>29</td>
+          <td>237</td>
+          <td>341</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Charts -->
+    <div class="charts">
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Data
+    const data = {
+      "NEW KAPIRI MPOSHI": { fitted: 238, notFitted: 143, aftercare: 0 },
+      "KABWE": { fitted: 301, notFitted: 157, aftercare: 2 },
+      "NDOLA": { fitted: 47, notFitted: 16, aftercare: 134 },
+      "KITWE": { fitted: 75, notFitted: 29, aftercare: 237 },
+      "all": { fitted: 661, notFitted: 345, aftercare: 373 }
+    };
+
+    // Toggle Theme
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    // Initialize Pie Chart
+    const pieCtx = document.getElementById('pieChart').getContext('2d');
+    let pieChart = new Chart(pieCtx, {
+      type: 'doughnut', // doughnut for 3D effect look
+      data: {
+        labels: ['Clients Fitted', 'Clients Not Fitted', 'Aftercare'],
+        datasets: [{
+          data: [661, 345, 373],
+          backgroundColor: ['#1e90ff', '#00bfff', '#4682b4'],
+          borderWidth: 2,
+          hoverOffset: 20
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
+
+    // Update Pie Chart based on city filter
+    function updatePieChart() {
+      const city = document.getElementById('cityFilter').value;
+      const selected = data[city];
+
+      pieChart.data.datasets[0].data = [selected.fitted, selected.notFitted, selected.aftercare];
+      pieChart.update();
+    }
+  </script>
+</body>
+</html>

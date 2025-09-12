@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHI Zambia Records Login</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #001f4d, #0059b3);
+    color: white;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #003366;
+  }
+  header img {
+    height: 50px;
+    margin-right: 20px;
+  }
+  header h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 24px;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  .login-box {
+    background-color: #004080;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  }
+  .login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .login-box label {
+    display: block;
+    margin-top: 10px;
+  }
+  .login-box input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+  .login-box button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .login-box button:hover {
+    background-color: #0059b3;
+  }
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #003366;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="logo.webp" alt="SHI Logo">
+    <h1>Starkey Hearing Institute Zambia Records Management System</h1>
+  </header>
+
+  <main>
+    <div class="login-box">
+      <h2>Admin Login</h2>
+      <form id="loginForm">
+        <label for="year">Select Year:</label>
+        <select id="year" required>
+          <option value="">--Select Year--</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+        </select>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password" required>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Starkey Hearing Institute Zambia
+  </footer>
+
+<script>
+  const passwords = {
+    2016: "2016pass",
+    2017: "2017pass",
+    2018: "2018pass",
+    2019: "2019pass",
+    2020: "2020pass",
+    2021: "2021pass",
+    2022: "2022pass",
+    2023: "2023pass",
+    2024: "2024pass",
+    2025: "2025pass"
+  };
+
+  const links = {
+    2016: "2016.html",
+    2017: "2017.html",
+    2018: "2018.html",
+    2019: "2019.html",
+    2020: "2020.html",
+    2021: "2021.html",
+    2022: "2022.html",
+    2023: "2023.html",
+    2024: "2024.html",
+    2025: "shi2025data.html"
+  };
+
+  document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const year = document.getElementById("year").value;
+    const password = document.getElementById("password").value;
+
+    if(passwords[year] && passwords[year] === password){
+      window.location.href = links[year];
+    } else {
+      alert("Incorrect password or year selection!");
+    }
+  });
+</script>
+</body>
+</html>
