@@ -1,6 +1,6 @@
 # shizdataentry.co.zm
 <p align="center">
-  <img src="shi.webp" alt="Logo" width="300">
+  <img src="shi.png" alt="Logo" width="300">
 </p>
 
 <p align="center">
