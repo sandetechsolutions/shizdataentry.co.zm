@@ -14,7 +14,7 @@
 
 
 <p align="center">
-  <a href="shi.html">Students Portal</a>
+  <a href="shimissionmap.html">Starkey Hearing Institute Zambia Mission Map Guide</a>
 </p>
 
 <p align="center">
