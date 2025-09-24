@@ -14,7 +14,7 @@
 
 
 <p align="center">
-  <a href="shimissionmap.html">Starkey Hearing Institute Zambia Mission Map Guide</a>
+  <a href="shimg.html">Starkey Hearing Institute Zambia Mission Map Guide</a>
 </p>
 
 <p align="center">
