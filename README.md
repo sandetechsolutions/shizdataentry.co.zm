@@ -5,16 +5,16 @@
 </p>
 
 <p align="center">
-  <a href="shi.html">Data Entry Track</a>
+  <a href="shilogin.html">Starkey - Data Entries</a>
 </p>
 
 <p align="center">
-  <a href="shizrms.html">Records Track Management system</a>
+  <a href="shizrms.html">Starkey - Records Management</a>
 </p>
 
 
 <p align="center">
-  <a href="shimg.html">Starkey Hearing Institute Zambia Mission Map Guide</a>
+  <a href="shimg.html">Starkey - Mission Guide</a>
 </p>
 
 <p align="center">
