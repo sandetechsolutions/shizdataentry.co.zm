@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STARKEY DATA ENTRY PROGRESS EVALUATION PORTAL</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #0a192f, #1e3c72);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        text-align: center;
+        padding: 20px;
+        background: #112d4e;
+    }
+    header img {
+        max-width: 120px;
+    }
+    h1 {
+        margin-top: 10px;
+        font-size: 22px;
+        color: #e0f7ff;
+    }
+    .login-container {
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #1b3b6f;
+        border-radius: 12px;
+        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+    }
+    .login-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .login-container input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 8px;
+    }
+    .login-container button {
+        width: 100%;
+        padding: 12px;
+        background: #00aaff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+    }
+    .login-container button:hover {
+        background: #008ecc;
+    }
+    nav {
+        background: #187bcd;
+        padding: 12px;
+        text-align: center;
+        display: none;
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline-block;
+        margin: 0 15px;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+    nav ul li a:hover {
+        background: white;
+        color: #0a1d4d;
+    }
+    .content {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+        display: none;
+    }
+    .towns {
+    max-width: 1400px; /* wider to fit 6x6 */
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 cards per row */
+    gap: 20px;
+    display: none;
+}
+     .town-card {
+        background: #1b3b6f;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+    .town-card h3 {
+        margin-bottom: 10px;
+        color: #e0f7ff;
+    }
+    .town-card a {
+        display: block;
+        text-decoration: none;
+        background: #00aaff;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 6px;
+    }
+    .town-card a:hover {
+        background: #008ecc;
+    }
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #112d4e;
+        margin-top: auto;
+        font-size: 14px;
+        color: #e0f7ff;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="shi.png" alt="Starkey Logo">
+    <h1>STARKEY DATA ENTRY PROGRESS EVALUATION PORTAL</h1>
+</header>
+
+<nav id="mainNav">
+    <ul>
+        <li><a href="#" id="logoutBtn">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="login-container" id="loginContainer">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Enter Email" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<div class="content" id="mainContent">
+    <h2>Select Country</h2>
+    <select id="countrySelect">
+        <option value="">-- Select a Country --</option>
+    </select>
+
+    <!-- Zambia Towns -->
+    <div class="towns" id="zambiaTowns" style="display:none;">
+        <div class="town-card"><h3>Choma</h3><a href="https://docs.google.com/spreadsheets/d/1S7qiRLdufju1-_ZxA271h48jLC7xAtjCelOVT39IHYA/edit?usp=sharing">Open Records</a></div>
+
+         <div class="town-card"><h3>Kafue</h3><a href="https://docs.google.com/spreadsheets/d/1fMHPhqcr5qipd4JT4O9W2S09lGo2kULfbxedJheqJu0/edit?usp=sharing">Open Records</a></div>
+
+          <div class="town-card"><h3>Kabwe</h3><a href="https://docs.google.com/spreadsheets/d/1LNOmjbR38WvmeW41QzqusaX_YhfAF4ulumKf0SmUfr0/edit?usp=sharing">Open Records</a></div>
+
+           <div class="town-card"><h3>Kabuyu</h3><a href="https://docs.google.com/spreadsheets/d/1ht_5br04WM7JtDJWy_A7x8Lz8bYpTMZvxYxIuyWtKeI/edit?usp=sharing">Open Records</a></div>
+
+            <div class="town-card"><h3>Kitwe</h3><a href="https://docs.google.com/spreadsheets/d/10x3D_Rlm25hXtkEEMA7U1qVbl2OxXLi0qYrJkAbLUgg/edit?usp=sharing">Open Records</a></div>
+
+             <div class="town-card"><h3>Kipiri</h3><a href="https://docs.google.com/spreadsheets/d/18DAFtaoBrZm_lAJdaiGJG5dj0fVbUDs5nDO8Tctkk5I/edit?usp=sharing">Open Records</a></div>
+
+              <div class="town-card"><h3>Lusaka</h3><a href="https://docs.google.com/spreadsheets/d/1Sj7-NWUuPR92xyqx0xYpZ4C_lRF6GYMKhtayktOxrdY/edit?usp=sharing">Open Records</a></div>
+
+               <div class="town-card"><h3>Livingstone</h3><a href="https://docs.google.com/spreadsheets/d/1_3d9E_5-W3ja20uXScx1g6iUN8nIyaX2VO7FVhBj5Gs/edit?usp=sharing">Open Records</a></div>
+
+                <div class="town-card"><h3>Monze</h3><a href="https://docs.google.com/spreadsheets/d/1NhyguBT2h897nMaxkuxh77a-mkhEYpSJinwcjvSPk6M/edit?usp=sharing">Open Records</a></div>
+
+                <div class="town-card"><h3>Ndola</h3><a href="https://docs.google.com/spreadsheets/d/1cq_u4wFlMWdc43QoGrGcQR3mdKNMlxU-90M6CKxhWPo/edit?usp=sharing">Open Records</a></div>
+
+                <div class="town-card"><h3>Nyimba</h3><a href="https://docs.google.com/spreadsheets/d/18klQZXeonXpTY1ev12IFrt-COgVLN8S12e0F4dRuohc/edit?usp=sharing">Open Records</a></div>
+                
+          <div class="town-card"><h3>Petauke</h3><a href="https://docs.google.com/spreadsheets/d/1S7qiRLdufju1-_ZxA271h48jLC7xAtjCelOVT39IHYA/edit?usp=sharing">Open Records</a></div>
+        <!-- (keep your other Zambia towns here) -->
+    </div>
+
+    <!-- Other Countries -->
+    <div id="countryLink" style="margin-top:20px; display:none;">
+        <a id="countryPageLink" href="#" target="_blank">Go to Country Records</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Starkey Hearing Institute Zambia. All Rights Reserved.
+</footer>
+
+<script>
+const allowedEmails = [
+    "jackson@adapt22.ai",
+    "tendaisande729@gmail.com",
+    "kelvinmulenga25@gmail.com"
+];
+
+// African countries list
+const africanCountries = [
+    "Algeria","Angola","Benin","Botswana","Burkina Faso","Burundi","Cabo Verde","Cameroon",
+    "Central African Republic","Chad","Comoros","Congo (Democratic Republic)","Congo (Republic)",
+    "Djibouti","Egypt","Equatorial Guinea","Eritrea","Eswatini","Ethiopia","Gabon","Gambia",
+    "Ghana","Guinea","Guinea-Bissau","Ivory Coast","Kenya","Lesotho","Liberia","Libya",
+    "Madagascar","Malawi","Mali","Mauritania","Mauritius","Morocco","Mozambique","Namibia",
+    "Niger","Nigeria","Rwanda","Sao Tome and Principe","Senegal","Seychelles","Sierra Leone",
+    "Somalia","South Africa","South Sudan","Sudan","Tanzania","Togo","Tunisia","Uganda",
+    "Zambia","Zimbabwe"
+];
+
+// Populate dropdown
+const select = document.getElementById("countrySelect");
+africanCountries.forEach(c => {
+    let option = document.createElement("option");
+    option.value = c;
+    option.textContent = c;
+    select.appendChild(option);
+});
+
+const loginForm = document.getElementById("loginForm");
+const loginContainer = document.getElementById("loginContainer");
+const mainNav = document.getElementById("mainNav");
+const mainContent = document.getElementById("mainContent");
+const logoutBtn = document.getElementById("logoutBtn");
+const zambiaTowns = document.getElementById("zambiaTowns");
+const countryLink = document.getElementById("countryLink");
+const countryPageLink = document.getElementById("countryPageLink");
+
+// LOGIN ACTION
+loginForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    if(allowedEmails.includes(username)){
+        loginContainer.style.display = "none";
+        mainNav.style.display = "block";
+        mainContent.style.display = "block";
+    } else {
+        alert("Access denied: Unauthorized email.");
+    }
+});
+
+// COUNTRY SELECTION
+select.addEventListener("change", function(){
+    let selected = select.value;
+    if(selected === "Zambia"){
+        zambiaTowns.style.display = "grid";
+        countryLink.style.display = "none";
+    } else if(selected){
+        zambiaTowns.style.display = "none";
+        countryLink.style.display = "block";
+        countryPageLink.href = "countries/" + selected.toLowerCase().replace(/\s+/g,'') + ".html";
+        countryPageLink.textContent = "Go to " + selected + " Records";
+    } else {
+        zambiaTowns.style.display = "none";
+        countryLink.style.display = "none";
+    }
+});
+
+// LOGOUT
+logoutBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    loginContainer.style.display = "block";
+    mainNav.style.display = "none";
+    mainContent.style.display = "none";
+    loginForm.reset();
+});
+</script>
+
+</body>
+</html>
