@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graduating Classes Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d1b2a, #1e3d59);
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      background: #102a43;
+      padding: 10px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #66ccff;
+    }
+
+    .filter {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      background: #1e6091;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    select:hover {
+      background: #168aad;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .student {
+      background: #1e3d59;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .student:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    .student img.profile {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #66ccff;
+      margin-bottom: 10px;
+    }
+
+    .student img.flag {
+      width: 25px;
+      height: 18px;
+      margin-left: 5px;
+      vertical-align: middle;
+      border-radius: 3px;
+    }
+
+    .student h3 {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #e0f7ff;
+    }
+
+    .student p {
+      margin: 3px 0;
+      font-size: 0.9rem;
+      color: #bcd4e6;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #102a43;
+      color: #bcd4e6;
+      font-size: 0.9rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="shi.png" alt="Logo">
+    <h1>STARKEY HEARING INSTITUTE ZAMBIA - GRADUATING CLASSES FOR 2016-PRESENT</h1>
+  </header>
+
+  <div class="filter">
+    <label for="year">Select Class Year: </label>
+    <select id="year">
+      <option value="2016" selected>2016</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+    </select>
+  </div>
+
+  <div class="grid" id="studentsGrid">
+    <!-- ==================== CLASS OF 2016 ==================== -->
+    <div class="student" data-year="2016">
+      <img src="1.jpg" alt="Rakotoarison" class="profile">
+      <h3>Name: Rakotoarison Raobelina Toky Andriantsoa</h3>
+      <p>Hometown: Antananarivo</p>
+      <p>Country: Madagascar <img src="mad.webp" alt="Madagascar" class="flag"></p>
+    </div>
+
+    <div class="student" data-year="2016">
+      <img src="2.jpg" alt="Amadau Bah" class="profile">
+      <h3>Name: Amadau Bah</h3>
+      <p>Hometown: Bensang</p>
+      <p>Country: The Gambia <img src="tg.png" alt="Gambia" class="flag"></p>
+    </div>
+
+    <div class="student" data-year="2016">
+      <img src="3.jpg" alt="Amadau Bah" class="profile">
+      <h3>Name: Wesley Mwelya Chibuye</h3>
+      <p>Hometown: Lusaka</p>
+      <p>Country: Zambia<img src="za.png" alt="Zambia" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="4.jpg" alt="Amadau Bah" class="profile">
+      <h3>Name: Esther Wanja Gitau</h3>
+      <p>Hometown: Nairobi</p>
+      <p>Country: Kenya<img src="ke.png" alt="Gambia" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="5.jpg" alt="Amadau Bah" class="profile">
+      <h3>Name: Regina Bickiel Kachapila</h3>
+      <p>Hometown: Lilongwe</p>
+      <p>Country: Malawi<img src="ma.webp" alt="Malawi" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="6.jpg" alt="Vanessa Gillan Kamwangala" class="profile">
+      <h3>Name: Vanessa Gillan Kamwangala</h3>
+      <p>Hometown: Lilongwe</p>
+      <p>Country: Malawi<img src="ma.webp" alt="Malawi" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="7.jpg" alt="Khosto Raphael Kebise" class="profile">
+      <h3>Country: Khosto Raphael Kebise</h3>
+      <p>Hometown: Tsoaing-Mot</p>
+      <p>Country: Lesotho<img src="le.png" alt="Lesotho" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="8.jpg" alt="Kumka Adella Ngwindoh" class="profile">
+      <h3>Name: Kumka Adella Ngwindoh</h3>
+      <p>Town: Bamenda</p>
+      <p>Country: Cameroon <img src="ca.webp" alt="Cameroon" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="9.jpg" alt="Robert Lapkin<" class="profile">
+      <h3>Name: Robert Lapkin</h3>
+      <p>Hometown: Blantyre</p>
+      <p>Country: Malawi <img src="ma.webp" alt="Malawi" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="10.jpg" alt="Anita Lungo" class="profile">
+      <h3>Name: Anita Lungo</h3>
+      <p>Hometown: Ndola</p>
+      <p>Country: Zambia <img src="za.png" alt="Zambia" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="11.jpg" alt="Harmlet Lindeni Mabuya" class="profile">
+      <h3>Name: Harmlet Lindeni Mabuya</h3>
+      <p>Hometown: Hazyview</p>
+      <p>Country: South Africa <img src="sa.png" alt="South Africa" class="flag"></p>
+    </div>
+
+<div class="student" data-year="2016">
+      <img src="12.jpg" alt="Bwalya Mwelwa" class="profile">
+      <h3>Name: Bwalya Mwelwa</h3>
+      <p>Hometown: Lusaka</p>
+      <p>Country: Zambia<img src="za.png" alt="Zambia" class="flag"></p>
+    </div>
+
+
+    <!-- Add the rest of the 2016 students here -->
+
+    <!-- ==================== CLASS OF 2017 ==================== -->
+    <div class="student" data-year="2017">
+      <img src="profiles/student2017a.jpg" alt="Student A 2017" class="profile">
+      <h3>Student A</h3>
+      <p>City 2017</p>
+      <p>Country 2017 <img src="flags/country2017.png" alt="Country 2017" class="flag"></p>
+    </div>
+    <div class="student" data-year="2017">
+      <img src="profiles/student2017b.jpg" alt="Student B 2017" class="profile">
+      <h3>Student B</h3>
+      <p>City 2017</p>
+      <p>Country 2017 <img src="flags/country2017.png" alt="Country 2017" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2018 ==================== -->
+    <div class="student" data-year="2018">
+      <img src="profiles/student2018a.jpg" alt="Student A 2018" class="profile">
+      <h3>Student A</h3>
+      <p>City 2018</p>
+      <p>Country 2018 <img src="flags/country2018.png" alt="Country 2018" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2019 ==================== -->
+    <div class="student" data-year="2019">
+      <img src="profiles/student2019a.jpg" alt="Student A 2019" class="profile">
+      <h3>Student A</h3>
+      <p>City 2019</p>
+      <p>Country 2019 <img src="flags/country2019.png" alt="Country 2019" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2020 ==================== -->
+    <div class="student" data-year="2020">
+      <img src="profiles/student2020a.jpg" alt="Student A 2020" class="profile">
+      <h3>Student A</h3>
+      <p>City 2020</p>
+      <p>Country 2020 <img src="flags/country2020.png" alt="Country 2020" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2021 ==================== -->
+    <div class="student" data-year="2021">
+      <img src="profiles/student2021a.jpg" alt="Student A 2021" class="profile">
+      <h3>Student A</h3>
+      <p>City 2021</p>
+      <p>Country 2021 <img src="flags/country2021.png" alt="Country 2021" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2022 ==================== -->
+    <div class="student" data-year="2022">
+      <img src="profiles/student2022a.jpg" alt="Student A 2022" class="profile">
+      <h3>Student A</h3>
+      <p>City 2022</p>
+      <p>Country 2022 <img src="flags/country2022.png" alt="Country 2022" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2023 ==================== -->
+    <div class="student" data-year="2023">
+      <img src="profiles/student2023a.jpg" alt="Student A 2023" class="profile">
+      <h3>Student A</h3>
+      <p>City 2023</p>
+      <p>Country 2023 <img src="flags/country2023.png" alt="Country 2023" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2024 ==================== -->
+    <div class="student" data-year="2024">
+      <img src="profiles/student2024a.jpg" alt="Student A 2024" class="profile">
+      <h3>Student A</h3>
+      <p>City 2024</p>
+      <p>Country 2024 <img src="flags/country2024.png" alt="Country 2024" class="flag"></p>
+    </div>
+
+    <!-- ==================== CLASS OF 2025 ==================== -->
+    <div class="student" data-year="2025">
+      <img src="profiles/student2025a.jpg" alt="Student A 2025" class="profile">
+      <h3>Student A</h3>
+      <p>City 2025</p>
+      <p>Country 2025 <img src="flags/country2025.png" alt="Country 2025" class="flag"></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Graduating Class Portal. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Filtering by class year
+    document.getElementById('year').addEventListener('change', function() {
+      const selectedYear = this.value;
+      const students = document.querySelectorAll('.student');
+
+      students.forEach(student => {
+        if (student.dataset.year === selectedYear) {
+          student.style.display = 'block';
+        } else {
+          student.style.display = 'none';
+        }
+      });
+    });
+
+    // Show only 2016 by default
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').dispatchEvent(new Event('change'));
+    });
+  </script>
+</body>
+</html>
