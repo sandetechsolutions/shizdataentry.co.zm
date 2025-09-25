@@ -8,7 +8,8 @@
   <a href="shilogin.html">Starkey - Data Entries</a> | 
   <a href="shizrms.html">Starkey - Records Management</a> | 
   <a href="shimg.html">Starkey - Mission Guide</a> | 
-  <a href="shipp.html">Starkey - Data Entry Progress Point</a>
+  <a href="shipp.html">Starkey - Data Entry Progress Point</a> |
+   <a href="shizgc.html">Starkey - Graduating Classes 2016-Present</a>
 </p>
 
 
