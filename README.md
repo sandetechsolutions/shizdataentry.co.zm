@@ -18,6 +18,11 @@
 </p>
 
 <p align="center">
+  <a href="shipp.html">Starkey - Data Entry Progress Point</a>
+</p>
+
+
+<p align="center">
  Starkey Hearing Institute Zambia  ©2025 | Sande Tech Solutions
   - Registered under the Patents and Companies Registration Agency (PACRA).  
   All documents, designs, icons, code, and related materials are legally protected.  
